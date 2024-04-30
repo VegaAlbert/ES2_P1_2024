@@ -5,8 +5,14 @@ public class Triangle {
 	
 	public static int[] trobaTriangle( Tipus elTipus, int[] costats)
 	{
+		if (costats == null) {
+			throw new IllegalArgumentException("Paràmetre d'entrada null");
+		}
+		if (elTipus == null) {
+			throw new IllegalArgumentException("Paràmetre d'entrada null");
+		}
 		int i = 0, costatA, costatB, costatC;
-		while( i < costats.length )
+		while( i  + 2 < costats.length )
 		{
 			costatA = costats[i];
 			costatB = costats[i+1];
@@ -31,7 +37,7 @@ public class Triangle {
 	private static boolean esTriangle( int costatA, int costatB, int costatC)
 	{
 		if( costatA >= 0 && costatB >= 0 && costatC >= 0)
-			if( costatA < costatB + costatC || costatB < costatA + costatC || costatC < costatA + costatC)
+			if( costatA < costatB + costatC && costatB < costatA + costatC && costatC < costatA + costatC)
 				return true;
 		return false;
 	}
